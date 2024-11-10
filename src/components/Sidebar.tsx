@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface SidebarProps {
-    setHeaderText: (text: string) => void; // Define a função recebida como prop
+    setHeaderText: (text: string) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ setHeaderText }) => {
