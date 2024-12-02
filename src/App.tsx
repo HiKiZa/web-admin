@@ -1,23 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-import MainContent from './components/MainContent';
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./app/contexts/AuthContext";
+import { AppRoutes } from "./routes";
+import { ThemeProvider } from "./app/contexts/ThemeContext";
+import { Toaster } from "sonner";
 
-const App: React.FC = () => {
-    return (
-        <Router>
-            <div style={styles.container}>
-                <Sidebar />
-                <MainContent />
-            </div>
-        </Router>
-    );
-};
-
-const styles = {
-    container: {
-        display: 'flex',
-    }
-};
+function App() {
+  return (
+    <BrowserRouter>
+      <ThemeProvider defaultTheme="dark">
+        <AuthProvider>
+          <AppRoutes />
+          <Toaster />
+        </AuthProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  );
+}
 
 export default App;
